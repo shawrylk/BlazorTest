@@ -24,4 +24,4 @@ jobs:
       - name: Sync main to test branch
         run: |
           git merge main --no-edit
-          git push origin test
+          git push --force-with-lease origin test
