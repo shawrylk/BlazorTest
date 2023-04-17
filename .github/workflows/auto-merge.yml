@@ -1,0 +1,21 @@
+name: Update Branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Setup environment
+        uses: actions/checkout@v2
+
+      - name: Create update pull request
+        uses: LucasRuy/sync-branch-action@v1.1.1
+        with:
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          SOURCE_BRANCH: 'main'
+          DESTINATION_BRANCH: 'test'
+          PULL_REQUEST_TITLE: 'sync: keep branch test updated'
