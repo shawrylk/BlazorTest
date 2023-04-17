@@ -20,6 +20,7 @@ jobs:
             git pull origin test
           else
             git checkout -b test
+            git pull origin test
             git push origin test
           fi
       - name: Sync main to test branch
