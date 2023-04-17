@@ -1,0 +1,24 @@
+name: Sync Main to Test Branch
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync-to-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout main branch
+        uses: actions/checkout@v2
+        with:
+          ref: main
+      - name: Create and checkout test branch
+        run: |
+          git checkout -b test
+          git push origin test
+      - name: Sync main to test branch
+        run: |
+          git checkout test
+          git merge main --no-edit
+          git push origin test
