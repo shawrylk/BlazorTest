@@ -5,7 +5,7 @@
     "iisExpress": {
       "applicationUrl": "http://localhost:26054",
       "sslPort": 44365
-    }
+    } 
   },
   "profiles": {
     "BlazorApp": {
