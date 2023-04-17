@@ -17,6 +17,7 @@ jobs:
         run: |
           if git show-ref --verify --quiet refs/heads/test; then
             git checkout test
+            git pull origin test
           else
             git checkout -b test
             git push origin test
@@ -24,4 +25,4 @@ jobs:
       - name: Sync main to test branch
         run: |
           git merge main --no-edit
-          git push --force-with-lease origin test
+          git push origin test
